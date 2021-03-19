@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="SzkolaTestowOlaKunysz" options="--add-exports java.base/sun.util.locale=ALL-UNNAMED" />
+      <module name="SzkolaTestowOlaKunysz" options="" />
     </option>
   </component>
 </project>
