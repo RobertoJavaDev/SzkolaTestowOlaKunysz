@@ -11,8 +11,8 @@ public class VatService {
         return calculateGrossPrice(product.getNetPrice(), vatValue);
     }
 
-    public double getGrossPriceForDifferentVat (Product product, double vatValue) throws Exception {
-        return calculateGrossPrice(product.getNetPrice(),vatValue);
+    public double getGrossPriceForDifferentVat (double netPrice, double vatValue) throws Exception {
+        return calculateGrossPrice(netPrice,vatValue);
     }
 
     private double calculateGrossPrice(double netPrice, double vatValue) throws Exception{
