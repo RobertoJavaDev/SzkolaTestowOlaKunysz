@@ -23,4 +23,16 @@ class VatServiceTest {
         //then
         assertEquals(123,result);
     }
+
+    @Test
+    void shouldCalculateGrossPriceForDifferentVatValue() throws Exception {
+        //given
+
+        //when
+        double result = vatService.getGrossPriceForDifferentVat(100,0.1);
+
+        //then
+        assertEquals(110,result);
+
+    }
 }
