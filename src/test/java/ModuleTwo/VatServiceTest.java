@@ -47,6 +47,23 @@ class VatServiceTest {
         assertThat(result).isEqualTo(108);
     }
 
+    @Test
+    void should_calculate_gross_price_for_one_hundred_percent_vat() throws Exception {
+        //given
+        String type = "Cigarette";
+        Mockito.when(vatProvider.getVatForType(type)).thenReturn(1.0);
+
+        //when
+        double result = vatService.getGrossPrice(100, type);
+
+        //then
+        //JUnit
+        assertEquals(200, result);
+
+        //AssertJ
+        assertThat(result).isEqualTo(200);
+    }
+
     private Product generateProduct(int id, double netPrice, String type) {
         return new Product(id, netPrice, type);
     }
