@@ -28,18 +28,28 @@ d:/test.png
 * Mockito - version 3.8.0
 
 ## Code Examples
+    @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+class VatServiceTest {
+    VatService vatService;
+    VatProvider vatProvider;
+
     @Test
-    @DisplayName("should calculate gross price for default VAT")
-    void shouldCalculateGrossPriceForDefaultVat() throws IncorrectVatException {
+    void should_calculate_gross_price_for_default_vat() throws IncorrectVatException {
         //given
-        when(vatProvider.getDefaultVat()).thenReturn(new BigDecimal(0.23));
-        Product product = generatedProduct("20.00", "Clothes");
+        String type = "Groceries";
+        Mockito.when(vatProvider.getDefaultVat()).thenReturn(0.23);
+        Product product = generateProduct("1", 100, type);
 
         //when
-        BigDecimal result = vatService.getGrossPriceForDefaultVat(product);
+        double result = vatService.getGrossPriceForDefaultVat(product);
 
         //then
-        assertThat(result).isEqualTo(new BigDecimal("24.60"));
+        //JUnit
+        assertEquals(123, result);
+
+        //AssertJ
+        assertThat(result).isEqualTo(123);
+    }
 
 
 ## Status
