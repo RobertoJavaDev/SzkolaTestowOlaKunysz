@@ -1,17 +1,19 @@
 package ModuleTwo;
 
 public class VatService {
-    double vatValue;
 
-    public VatService(){
-        this.vatValue=0.23;
+    VatProvider vatProvider;
+
+    public VatService(VatProvider vatProvider){
+        this.vatProvider = vatProvider;
     }
 
     public double getGrossPriceForDefaultVat (Product product) throws Exception {
-        return calculateGrossPrice(product.getNetPrice(), vatValue);
+        return calculateGrossPrice(product.getNetPrice(), vatProvider.getDefaultVat());
     }
 
-    public double getGrossPriceForDifferentVat (double netPrice, double vatValue) throws Exception {
+    public double getGrossPrice (double netPrice, String type) throws Exception {
+        double vatValue = vatProvider.getVatForType(type);
         return calculateGrossPrice(netPrice,vatValue);
     }
 
