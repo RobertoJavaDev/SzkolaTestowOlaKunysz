@@ -8,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class VatServiceTest {
 
     VatService vatService = new VatService();
-    private Product generateProduct(int id, double vatValue){
-        return new Product(id,vatValue);
+    private Product generateProduct(int id, double netPrice){
+        return new Product(id,netPrice);
     }
 
     @Test
