@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.*;
 
 class VatServiceTest {
@@ -79,6 +80,27 @@ class VatServiceTest {
 
         //AssertJ
         assertThat(result).isEqualTo(100);
+    }
+
+    @Test
+    void should_throw_exception_when_vat_is_too_high(){
+        //given
+        String type = "Non exist product";
+        Product product = generateProduct(1, 100, type);
+        Mockito.when(vatProvider.getVatForType(type)).thenReturn(3.1);
+
+        //when
+
+        //then
+        //JUnit
+        assertThrows(Exception.class, () -> {
+            vatService.getGrossPrice(product.getNetPrice(), type);
+        });
+        //AssertJ
+        assertThatExceptionOfType(Exception.class).isThrownBy(
+                () -> {
+                    vatService.getGrossPrice(product.getNetPrice(), type);
+                });
     }
 
     private Product generateProduct(int id, double netPrice, String type) {
