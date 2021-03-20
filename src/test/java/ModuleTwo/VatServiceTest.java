@@ -22,6 +22,5 @@ class VatServiceTest {
 
         //then
         assertEquals(123,result);
-
     }
 }
