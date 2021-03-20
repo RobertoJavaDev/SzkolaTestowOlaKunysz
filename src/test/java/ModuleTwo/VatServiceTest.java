@@ -14,7 +14,7 @@ class VatServiceTest {
     VatProvider vatProvider;
 
     @Test
-    void shouldCalculateVatValueForDefaultVat() throws Exception {
+    void shouldCalculateVatValueForDefaultVat() throws IncorrectVatException {
         //given
         String type = "Groceries";
         Mockito.when(vatProvider.getDefaultVat()).thenReturn(0.23);
@@ -32,7 +32,7 @@ class VatServiceTest {
     }
 
     @Test
-    void should_calculate_gross_price_for_different_vat() throws Exception {
+    void should_calculate_gross_price_for_different_vat() throws IncorrectVatException {
         //given
         String type = "Buildings materials";
         Mockito.when(vatProvider.getVatForType(type)).thenReturn(0.08);
@@ -49,7 +49,7 @@ class VatServiceTest {
     }
 
     @Test
-    void should_calculate_gross_price_for_one_hundred_percent_vat() throws Exception {
+    void should_calculate_gross_price_for_one_hundred_percent_vat() throws IncorrectVatException {
         //given
         String type = "Cigarette";
         Mockito.when(vatProvider.getVatForType(type)).thenReturn(1.0);
@@ -66,7 +66,7 @@ class VatServiceTest {
     }
 
     @Test
-    void should_calculate_gross_price_for_product_exempt_from_vat() throws Exception {
+    void should_calculate_gross_price_for_product_exempt_from_vat() throws IncorrectVatException {
         //given
         String type = "Meds";
         Mockito.when(vatProvider.getVatForType(type)).thenReturn((double) 0);
@@ -93,11 +93,11 @@ class VatServiceTest {
 
         //then
         //JUnit
-        assertThrows(Exception.class, () -> {
+        assertThrows(IncorrectVatException.class, () -> {
             vatService.getGrossPrice(product.getNetPrice(), type);
         });
         //AssertJ
-        assertThatExceptionOfType(Exception.class).isThrownBy(
+        assertThatExceptionOfType(IncorrectVatException.class).isThrownBy(
                 () -> {
                     vatService.getGrossPrice(product.getNetPrice(), type);
                 });
