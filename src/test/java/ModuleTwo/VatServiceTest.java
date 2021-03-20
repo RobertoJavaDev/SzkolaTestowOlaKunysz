@@ -64,6 +64,23 @@ class VatServiceTest {
         assertThat(result).isEqualTo(200);
     }
 
+    @Test
+    void should_calculate_gross_price_for_product_exempt_from_vat() throws Exception {
+        //given
+        String type = "Meds";
+        Mockito.when(vatProvider.getVatForType(type)).thenReturn((double) 0);
+
+        //when
+        double result = vatService.getGrossPrice(100, type);
+
+        //then
+        //JUnit
+        assertEquals(100, result);
+
+        //AssertJ
+        assertThat(result).isEqualTo(100);
+    }
+
     private Product generateProduct(int id, double netPrice, String type) {
         return new Product(id, netPrice, type);
     }
