@@ -30,17 +30,22 @@ class VatServiceTest {
         assertThat(result).isEqualTo(123);
     }
 
-    //    @Test
-//    void shouldCalculateGrossPriceForDifferentVatValue() throws Exception {
-//        //given
-//
-//        //when
-//        double result = vatService.getGrossPriceForDifferentVat(100,0.1);
-//
-//        //then
-//        assertEquals(110,result);
-//
-//    }
+    @Test
+    void should_calculate_gross_price_for_different_vat() throws Exception {
+        //given
+        String type = "Buildings materials";
+        Mockito.when(vatProvider.getVatForType(type)).thenReturn(0.08);
+
+        //when
+        double result = vatService.getGrossPrice(100, type);
+
+        //then
+        //JUnit
+        assertEquals(108, result);
+
+        //AssertJ
+        assertThat(result).isEqualTo(108);
+    }
 
     private Product generateProduct(int id, double netPrice, String type) {
         return new Product(id, netPrice, type);
