@@ -17,7 +17,7 @@ public class BowlingKata {
              }
              else if (isStrike()){
                  score += 10 + rolls[cursor+1] + rolls[cursor+2];
-                 cursor ++;
+                 cursor++;
              }
              else{
                  score += rolls[cursor] + rolls[cursor+1];

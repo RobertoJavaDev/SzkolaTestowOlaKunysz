@@ -13,7 +13,7 @@ class BowlingKataTest {
         //given
 
         //when
-        roll(20,0);
+        roll(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
         //then
         assertThat(theGame.getScore()).isEqualTo(0);
@@ -24,7 +24,7 @@ class BowlingKataTest {
         //given
 
         //when
-        roll(20,1);
+        roll(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
 
         //then
         assertThat(theGame.getScore()).isEqualTo(20);
@@ -35,10 +35,7 @@ class BowlingKataTest {
         //given
 
         //when
-        roll(1,5);
-        roll(1,5);
-        roll(1,3);
-        roll(17,0);
+        roll(5,5,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
         //then
         assertThat(theGame.getScore()).isEqualTo(16);
@@ -49,10 +46,7 @@ class BowlingKataTest {
         //given
 
         //when
-        roll(1,10);
-        roll(1,3);
-        roll(1,4);
-        roll(17,0);
+        roll(10,3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
         //then
         assertThat(theGame.getScore()).isEqualTo(24);
@@ -63,16 +57,16 @@ class BowlingKataTest {
         //given
 
         //when
-        roll(21,10);
+        roll(10,10,10,10,10,10,10,10,10,10,10,10);
 
         //then
         assertThat(theGame.getScore()).isEqualTo(300);
 
     }
 
-    private void roll(int rolls, int pins) {
-        for (int i = 0; i <rolls; i++) {
-            theGame.roll(pins);
+    private void roll(int... pins) {
+        for (int pin:pins) {
+            theGame.roll(pin);
         }
     }
 }
