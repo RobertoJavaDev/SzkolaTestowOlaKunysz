@@ -56,6 +56,17 @@ class BowlingKataTest {
 
         //then
         assertThat(theGame.getScore()).isEqualTo(24);
+    }
+
+    @Test
+    void shouldReturn300WhenStrikeInAllThrows() {
+        //given
+
+        //when
+        roll(21,10);
+
+        //then
+        assertThat(theGame.getScore()).isEqualTo(300);
 
     }
 
