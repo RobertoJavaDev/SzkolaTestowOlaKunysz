@@ -16,6 +16,17 @@ class BowlingKataTest {
 
         //then
         assertThat(result).isEqualTo(0);
+    }
 
+    @Test
+    void shouldReturn20WhenOnePinThrowInRoll() {
+        //given
+        BowlingKata theGame = new BowlingKata();
+
+        //when
+        int result = theGame.add(20,1);
+
+        //then
+        assertThat(result).isEqualTo(20);
     }
 }
