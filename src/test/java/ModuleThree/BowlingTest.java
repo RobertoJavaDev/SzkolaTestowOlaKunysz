@@ -13,10 +13,10 @@ class BowlingKataTest {
         //given
 
         //when
-        int result = theGame.add(21, 0);
+        roll(20,0);
 
         //then
-        assertThat(result).isEqualTo(0);
+        assertThat(theGame.getScore()).isEqualTo(0);
     }
 
     @Test
@@ -24,9 +24,15 @@ class BowlingKataTest {
         //given
 
         //when
-        int result = theGame.add(20,1);
+        roll(20,1);
 
         //then
-        assertThat(result).isEqualTo(20);
+        assertThat(theGame.getScore()).isEqualTo(20);
+    }
+
+    private void roll(int rolls, int pins) {
+        for (int i = 0; i <rolls; i++) {
+            theGame.roll(pins);
+        }
     }
 }
