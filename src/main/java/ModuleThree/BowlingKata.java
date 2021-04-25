@@ -3,18 +3,23 @@ package ModuleThree;
 public class BowlingKata {
 
     int [] rolls = new int[21];
-    int roll;
+    int roll =0;
 
      public int getScore(){
          int cursor = 0;
          int score = 0;
 
-         for (int roll = 0; roll < rolls.length; roll++) {
+         for (int roll = 0; roll < 20; roll++) {
              if (isSpare(cursor)){
                  score += 10 + rolls[cursor+2];
                  cursor ++;
                  roll++;
              }
+             else if (rolls[cursor] == 10){
+                 score += 10 + rolls[cursor+1] + rolls[cursor+2];
+                 cursor++;
+             }
+
              else{
                  score += rolls[roll];
                  cursor ++;
