@@ -9,22 +9,25 @@ public class BowlingKata {
          int cursor = 0;
          int score = 0;
 
-         for (int i = 0; i < 20; i++) {
-             if (rolls[cursor] + rolls[cursor+1] == 10){
+         for (int roll = 0; roll < rolls.length; roll++) {
+             if (isSpare(cursor)){
                  score += 10 + rolls[cursor+2];
-                 cursor += 2;
-                 i++;
+                 cursor ++;
+                 roll++;
              }
              else{
-                 score += rolls[i];
+                 score += rolls[roll];
                  cursor ++;
              }
          }
          return score;
      }
 
-     public void roll(int pins){
+    private boolean isSpare(int cursor) {
+        return rolls[cursor] + rolls[cursor + 1] == 10;
+    }
+
+    public void roll(int pins){
          rolls[roll++] += pins;
      }
-
 }
