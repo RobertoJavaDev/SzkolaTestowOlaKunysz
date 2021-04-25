@@ -30,6 +30,20 @@ class BowlingKataTest {
         assertThat(theGame.getScore()).isEqualTo(20);
     }
 
+    @Test
+    void shouldReturn16WhenThrowSpareInFirstFrame() {
+        //given
+
+        //when
+        roll(1,5);
+        roll(1,5);
+        roll(1,3);
+        roll(17,0);
+
+        //then
+        assertThat(theGame.getScore()).isEqualTo(16);
+    }
+
     private void roll(int rolls, int pins) {
         for (int i = 0; i <rolls; i++) {
             theGame.roll(pins);
