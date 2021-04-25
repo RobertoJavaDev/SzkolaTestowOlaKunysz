@@ -6,10 +6,11 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class BowlingKataTest {
 
+    BowlingKata theGame = new BowlingKata();
+
     @Test
     void shouldReturnZeroWhenAllRollsAreMissed() {
         //given
-        BowlingKata theGame = new BowlingKata();
 
         //when
         int result = theGame.add(21, 0);
@@ -21,7 +22,6 @@ class BowlingKataTest {
     @Test
     void shouldReturn20WhenOnePinThrowInRoll() {
         //given
-        BowlingKata theGame = new BowlingKata();
 
         //when
         int result = theGame.add(20,1);
