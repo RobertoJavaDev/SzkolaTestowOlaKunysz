@@ -4,31 +4,34 @@ public class BowlingKata {
 
     int [] rolls = new int[21];
     int roll =0;
+    int cursor = 0;
 
      public int getScore(){
-         int cursor = 0;
+
          int score = 0;
 
-         for (int roll = 0; roll < 20; roll++) {
-             if (isSpare(cursor)){
+         for (int frame = 0; frame < 10; frame++) {
+             if (isSpare()){
                  score += 10 + rolls[cursor+2];
-                 cursor ++;
-                 roll++;
+                 cursor +=2;
              }
-             else if (rolls[cursor] == 10){
+             else if (isStrike()){
                  score += 10 + rolls[cursor+1] + rolls[cursor+2];
-                 cursor++;
-             }
-
-             else{
-                 score += rolls[roll];
                  cursor ++;
+             }
+             else{
+                 score += rolls[cursor] + rolls[cursor+1];
+                 cursor +=2;
              }
          }
          return score;
      }
 
-    private boolean isSpare(int cursor) {
+    private boolean isStrike() {
+        return rolls[cursor] == 10;
+    }
+
+    private boolean isSpare() {
         return rolls[cursor] + rolls[cursor + 1] == 10;
     }
 
