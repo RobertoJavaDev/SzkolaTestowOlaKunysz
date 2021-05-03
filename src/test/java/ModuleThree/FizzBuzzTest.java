@@ -15,4 +15,14 @@ class FizzBuzzTest {
         //then
         assertThat(result).contains("Fizz");
     }
+
+    @Test
+    void shouldReturnBuzzWhenNumberDivisibleByFive() {
+        //when
+        String result = fizzBuzz.check(25);
+
+        //then
+        assertThat(result).contains("Buzz");
+
+    }
 }
