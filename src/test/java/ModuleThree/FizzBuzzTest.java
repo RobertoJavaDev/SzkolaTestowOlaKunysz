@@ -24,4 +24,14 @@ class FizzBuzzTest {
         //then
         assertThat(result).contains("Buzz");
     }
+
+    @Test
+    void shouldReturnFizzBuzzWhenNumberDivisibleByThreeAndFive() {
+        //when
+        String result = fizzBuzz.check(75);
+
+        //then
+        assertThat(result).contains("FizzBuzz");
+
+    }
 }
