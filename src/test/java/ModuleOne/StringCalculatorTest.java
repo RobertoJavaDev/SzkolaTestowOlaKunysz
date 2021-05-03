@@ -14,17 +14,17 @@ class StringCalculatorTest {
     }
 
     @Test
-    void shouldSumWhenNotNumberGiven() {
+    void shouldReturnSumWhenNotNumberGiven() {
         assertEquals(0, calculator.add(""));
     }
 
     @Test
-    void shouldSumFourNumbersWhenFourPrimeNumbersGiven() {
+    void shouldReturnSumFourNumbersWhenFourPrimeNumbersGiven() {
         assertEquals(17,calculator.add("2,3,5,7"));
     }
 
     @Test
-    void shouldSumNumbersWhenAnyOfNumberIsNegative() {
+    void shouldReturnSumNumbersWhenAnyOfNumberIsNegative() {
         assertEquals(7,calculator.add("1,-3,4,5"));
     }
 
