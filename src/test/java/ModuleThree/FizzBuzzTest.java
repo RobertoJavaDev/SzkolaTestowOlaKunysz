@@ -10,7 +10,7 @@ class FizzBuzzTest {
     @Test
     void shouldReturnFizzWhenNumberDivisibleByThree() {
         //when
-        String result = fizzBuzz.check(9);
+        String result = fizzBuzz.check(99);
 
         //then
         assertThat(result).contains("Fizz");
