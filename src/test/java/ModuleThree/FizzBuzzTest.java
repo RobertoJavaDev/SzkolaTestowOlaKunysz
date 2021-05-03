@@ -1,5 +1,6 @@
 package ModuleThree;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -41,5 +42,11 @@ class FizzBuzzTest {
 
         //then
         assertThat(result).contains("11");
+    }
+
+    @BeforeAll
+    static void beforeAll() {
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        fizzBuzz.generateNumber();
     }
 }
