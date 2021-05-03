@@ -33,4 +33,10 @@ public class FizzBuzz {
     private boolean isDivisibleBy3(int numberTest) {
         return numberTest % 3 == 0 && numberTest % 5 != 0;
     }
+
+    public void generateNumber() {
+        for (int i = 1; i < 101; i++) {
+            check(i);
+        }
+    }
 }
