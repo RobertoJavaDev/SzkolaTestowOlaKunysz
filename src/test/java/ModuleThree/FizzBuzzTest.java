@@ -35,7 +35,7 @@ class FizzBuzzTest {
     }
 
     @Test
-    void shouldReturnNumberWhenNumberNotDivisibleByThreeAndFive() {
+    void shouldReturnNumberWhenNumberNonDivisibleByThreeAndFive() {
         //when
         String result = fizzBuzz.check(11);
 
