@@ -9,20 +9,21 @@ public class FizzBuzz {
     public String check(int numberTest) {
 
         System.out.println(numberTest);
+        String result = "";
 
         if (isDivisibleBy3(numberTest)){
             System.out.println(FIZZ);
-            return FIZZ;
+            result += FIZZ;
         }
         else if (isDivisibleBy5(numberTest)){
             System.out.println(BUZZ);
-            return BUZZ;
+            result += BUZZ;
         }
         else if (numberTest % 15 == 0){
             System.out.println(FIZZ_BUZZ);
-            return FIZZ_BUZZ;
+            result += FIZZ_BUZZ;
         }
-        return null;
+        return result.isEmpty() ? String.valueOf(numberTest) : result;
     }
 
     private boolean isDivisibleBy5(int numberTest) {
