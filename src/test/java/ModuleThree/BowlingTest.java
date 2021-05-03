@@ -31,7 +31,7 @@ class BowlingKataTest {
     }
 
     @Test
-    void shouldReturn16WhenThrowSpareInFirstFrame() {
+    void shouldCalculateSpareInFirstFrame() {
         //given
 
         //when
@@ -42,7 +42,7 @@ class BowlingKataTest {
     }
 
     @Test
-    void shouldReturn24WhenThrowStrikeInFirstFrame() {
+    void shouldCalculateStrikeInFirstThrow() {
         //given
 
         //when
