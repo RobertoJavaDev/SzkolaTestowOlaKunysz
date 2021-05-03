@@ -14,7 +14,7 @@ https://szkolatestow.online/
 The project consists of four modules:
 - Module I - first unit test written
 - Module II - tools for testing: JUnit, AssertJ
-- Module III - TDD - Coding Dojo - excercises: BowlingKata
+- Module III - TDD - Coding Dojo - excercises: BowlingKata, FizzBuzzKata
 - Module IV - 
 
 ## Screenshots
