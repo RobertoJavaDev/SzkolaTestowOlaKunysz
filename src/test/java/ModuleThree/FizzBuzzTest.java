@@ -23,6 +23,5 @@ class FizzBuzzTest {
 
         //then
         assertThat(result).contains("Buzz");
-
     }
 }

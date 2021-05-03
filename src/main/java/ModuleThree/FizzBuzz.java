@@ -3,6 +3,7 @@ package ModuleThree;
 public class FizzBuzz {
 
     public static final String FIZZ = "Fizz";
+    public static final String BUZZ = "Buzz";
 
     public String check(int numberTest) {
 
@@ -13,8 +14,8 @@ public class FizzBuzz {
             return FIZZ;
         }
         else if (numberTest % 5 == 0){
-            System.out.println("Buzz");
-            return "Buzz";
+            System.out.println(BUZZ);
+            return BUZZ;
         }
         return null;
     }
