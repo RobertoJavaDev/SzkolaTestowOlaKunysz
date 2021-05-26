@@ -36,6 +36,5 @@ class EmployeeReportTest {
 
         //then
         Assertions.assertThat(employeeList.size()).isEqualTo(2);
-
     }
 }
