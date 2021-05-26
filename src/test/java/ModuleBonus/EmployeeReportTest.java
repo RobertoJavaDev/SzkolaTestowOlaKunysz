@@ -41,4 +41,18 @@ class EmployeeReportTest {
         //then
         Assertions.assertThat(employeeList.size()).isEqualTo(2);
     }
+
+    @Test
+    void shouldReturnEmployeesListWhoAreMinors() {
+        //given
+        List<Employee> employees = Arrays.asList(
+                new Employee("Max",17),
+                new Employee("Nina",15));
+
+        //when
+        List<Employee> employeeList = employeeReport.getEmployees(employees);
+
+        //then
+        Assertions.assertThat(employeeList.size()).isEqualTo(0);
+    }
 }
