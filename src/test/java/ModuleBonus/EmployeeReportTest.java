@@ -1,6 +1,7 @@
 package ModuleBonus;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,11 +10,15 @@ import java.util.List;
 
 class EmployeeReportTest {
 
+    private EmployeeReport employeeReport;
+
+    @BeforeEach
+    void setUp() {
+        employeeReport = new EmployeeReport();
+    }
+
     @Test
     void shouldReturnEmptyListWhenThereAreNoEmployees() {
-        //given
-        EmployeeReport employeeReport = new EmployeeReport();
-
         //when
         List<Employee> employeeList = employeeReport.getEmployees(new ArrayList<>());
 
@@ -24,7 +29,6 @@ class EmployeeReportTest {
     @Test
     void shouldReturnEmployeesListWhichAreOlderThan18Years() {
         //given
-        EmployeeReport employeeReport = new EmployeeReport();
         List<Employee> employees = Arrays.asList(
                 new Employee("Max",17),
                 new Employee("Sepp", 18),
