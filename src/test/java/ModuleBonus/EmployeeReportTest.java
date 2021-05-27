@@ -63,7 +63,7 @@ class EmployeeReportTest {
         List<Employee> employeeList = employeeReport.getEmployees(employees, false);
 
         //then
-        Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("Mike",51), new Employee("Sepp",18)));
+        Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("MIKE",51), new Employee("SEPP",18)));
     }
 
     @Test
