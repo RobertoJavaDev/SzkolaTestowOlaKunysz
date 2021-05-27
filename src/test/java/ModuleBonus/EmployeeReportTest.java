@@ -29,11 +29,7 @@ class EmployeeReportTest {
     @Test
     void shouldReturnEmployeesListWhichAreOlderThan18Years() {
         //given
-        List<Employee> employees = Arrays.asList(
-                new Employee("Max",17),
-                new Employee("Sepp", 18),
-                new Employee("Nina",15),
-                new Employee("Mike",51));
+        List<Employee> employees = getEmployees();
 
         //when
         List<Employee> employeeList = employeeReport.getEmployees(employees);
@@ -41,6 +37,8 @@ class EmployeeReportTest {
         //then
         Assertions.assertThat(employeeList.size()).isEqualTo(2);
     }
+
+
 
     @Test
     void shouldReturnEmployeesListWhoAreMinors() {
@@ -59,15 +57,20 @@ class EmployeeReportTest {
     @Test
     void shouldReturnEmployeesListSortedByTheirName() {
         //given
-        List<Employee> employees = Arrays.asList(
-                new Employee("Max",17),
-                new Employee("Sepp", 18),
-                new Employee("Nina",15),
-                new Employee("Mike",51));
+        List<Employee> employees = getEmployees();
+
         //when
         List<Employee> employeeList = employeeReport.getEmployees(employees);
 
         //then
         Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("Sepp",18), new Employee("Mike",51)));
+    }
+
+    private List<Employee> getEmployees() {
+        return Arrays.asList(
+                new Employee("Max", 17),
+                new Employee("Sepp", 18),
+                new Employee("Nina", 15),
+                new Employee("Mike", 51));
     }
 }
