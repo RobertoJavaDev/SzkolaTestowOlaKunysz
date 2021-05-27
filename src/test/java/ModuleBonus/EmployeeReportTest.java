@@ -55,4 +55,19 @@ class EmployeeReportTest {
         //then
         Assertions.assertThat(employeeList.size()).isEqualTo(0);
     }
+
+    @Test
+    void shouldReturnEmployeesListSortedByTheirName() {
+        //given
+        List<Employee> employees = Arrays.asList(
+                new Employee("Max",17),
+                new Employee("Sepp", 18),
+                new Employee("Nina",15),
+                new Employee("Mike",51));
+        //when
+        List<Employee> employeeList = employeeReport.getEmployees(employees);
+
+        //then
+        Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("Sepp",18), new Employee("Mike",51)));
+    }
 }
