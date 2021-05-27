@@ -79,6 +79,19 @@ class EmployeeReportTest {
 
     }
 
+    @Test
+    void shouldReturnEmployeesListSortedByTheirNameDescending() {
+        //given
+        List<Employee> employees = getEmployees();
+
+        //when
+        List<Employee> employeeList = employeeReport.getEmployees(employees, true);
+
+        //then
+        Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("SEPP",18), new Employee("MIKE",51)));
+
+    }
+
     private List<Employee> getEmployees() {
         return Arrays.asList(
                 new Employee("Max", 17),
