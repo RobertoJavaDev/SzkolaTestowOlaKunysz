@@ -1,12 +1,15 @@
 package ModuleBonus;
 
 import org.assertj.core.api.Assertions;
+import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class EmployeeReportTest {
 
@@ -23,7 +26,7 @@ class EmployeeReportTest {
         List<Employee> employeeList = employeeReport.getEmployees(new ArrayList<>(), false);
 
         //then
-        Assertions.assertThat(employeeList.size()).isEqualTo(0);
+        assertThat(employeeList.size()).isEqualTo(0);
     }
 
     @Test
@@ -35,10 +38,8 @@ class EmployeeReportTest {
         List<Employee> employeeList = employeeReport.getEmployees(employees, false);
 
         //then
-        Assertions.assertThat(employeeList.size()).isEqualTo(2);
+        assertThat(employeeList.size()).isEqualTo(2);
     }
-
-
 
     @Test
     void shouldReturnEmployeesListWhoAreMinors() {
@@ -51,11 +52,11 @@ class EmployeeReportTest {
         List<Employee> employeeList = employeeReport.getEmployees(employees, false);
 
         //then
-        Assertions.assertThat(employeeList.size()).isEqualTo(0);
+        assertThat(employeeList.size()).isEqualTo(0);
     }
 
     @Test
-    void shouldReturnEmployeesListSortedByTheirName() {
+    void shouldReturnEmployeesListSortedByTheirNameAscending() {
         //given
         List<Employee> employees = getEmployees();
 
@@ -63,7 +64,7 @@ class EmployeeReportTest {
         List<Employee> employeeList = employeeReport.getEmployees(employees, false);
 
         //then
-        Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("MIKE",51), new Employee("SEPP",18)));
+        assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("MIKE",51), new Employee("SEPP",18)));
     }
 
     @Test
@@ -75,8 +76,7 @@ class EmployeeReportTest {
         List<Employee> employeeList = employeeReport.getEmployees(employees, true);
 
         //then
-        Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("SEPP",18), new Employee("MIKE",51)));
-
+        assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("SEPP",18), new Employee("MIKE",51)));
     }
 
     @Test
@@ -88,8 +88,7 @@ class EmployeeReportTest {
         List<Employee> employeeList = employeeReport.getEmployees(employees, true);
 
         //then
-        Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("SEPP",18), new Employee("MIKE",51)));
-
+        assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("SEPP",18), new Employee("MIKE",51)));
     }
 
     private List<Employee> getEmployees() {
