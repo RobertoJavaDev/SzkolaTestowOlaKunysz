@@ -20,7 +20,7 @@ class EmployeeReportTest {
     @Test
     void shouldReturnEmptyListWhenThereAreNoEmployees() {
         //when
-        List<Employee> employeeList = employeeReport.getEmployees(new ArrayList<>());
+        List<Employee> employeeList = employeeReport.getEmployees(new ArrayList<>(), false);
 
         //then
         Assertions.assertThat(employeeList.size()).isEqualTo(0);
@@ -32,7 +32,7 @@ class EmployeeReportTest {
         List<Employee> employees = getEmployees();
 
         //when
-        List<Employee> employeeList = employeeReport.getEmployees(employees);
+        List<Employee> employeeList = employeeReport.getEmployees(employees, false);
 
         //then
         Assertions.assertThat(employeeList.size()).isEqualTo(2);
@@ -48,7 +48,7 @@ class EmployeeReportTest {
                 new Employee("Nina",15));
 
         //when
-        List<Employee> employeeList = employeeReport.getEmployees(employees);
+        List<Employee> employeeList = employeeReport.getEmployees(employees, false);
 
         //then
         Assertions.assertThat(employeeList.size()).isEqualTo(0);
@@ -60,10 +60,10 @@ class EmployeeReportTest {
         List<Employee> employees = getEmployees();
 
         //when
-        List<Employee> employeeList = employeeReport.getEmployees(employees);
+        List<Employee> employeeList = employeeReport.getEmployees(employees, false);
 
         //then
-        Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("Sepp",18), new Employee("Mike",51)));
+        Assertions.assertThat(employeeList).isEqualTo(Arrays.asList(new Employee("Mike",51), new Employee("Sepp",18)));
     }
 
     private List<Employee> getEmployees() {
